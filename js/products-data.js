@@ -1,0 +1,362 @@
+﻿/**
+ * 萊渼國際貿易有限公司 LAIMEI INTERNATIONAL TRADE CO., LTD.
+ * 產品全資料庫與規格清單 (Products Database - Active 20 Commercial Products)
+ */
+
+const COMPANY_INFO = {
+  name: "萊渼國際貿易有限公司",
+  nameEn: "LAIMEI INTERNATIONAL TRADE CO., LTD.",
+  brand: "LENOR HERBAL 萊渼生化草本美肌",
+  address: "新北市板橋區信義路117號5樓",
+  tel: "(02)8953-5096",
+  fax: "(02)8953-5119",
+  hours: "週一至週五 09:00 - 18:00 (國定例假日休息)"
+};
+
+const PRODUCT_CATEGORIES = [
+  { key: "all", name: "全部系列", desc: "純淨水感草本修護" },
+  { key: "cleanse", name: "清潔系列", desc: "溫和淨化・毛孔舒暢呼吸" },
+  { key: "condition", name: "調理系列", desc: "油水平衡・水感角質調理" },
+  { key: "serum", name: "重點精華保養系列", desc: "高濃度賦活・精準滲透修護" },
+  { key: "repair", name: "日夜滋潤修護系列", desc: "深層潤澤・鎖水防護屏障" },
+  { key: "protect", name: "日間防護系列", desc: "輕透隔離・抗UV防禦光老化" },
+  { key: "mask", name: "面膜深層護理系列", desc: "密集導入・沙龍級水光急救" }
+];
+
+const PRODUCTS_DATA = [
+  // 1. 清潔系列
+  {
+    id: "舒淨洗卸兩用",
+    slug: "舒淨洗卸兩用.html",
+    name: "舒淨洗卸兩用",
+    series: "清潔系列",
+    seriesKey: "cleanse",
+    volume: "200 ml",
+    ingredients: ["氨基酸洗顏成份", "天然角鯊烯", "洋甘菊萃取液", "款冬萃取液", "丙二醇"],
+    efficacy: "清潔肌膚。溫和卸除臉部淡妝與毛孔髒汙，深層潔淨同時保護皮脂膜，洗後清爽水潤不緊繃。",
+    usage: "取適量置於手中，加少量水揉搓出泡沫，在臉上輕輕按摩，再以清水洗去。",
+    skinType: "敏感、乾性肌膚。",
+    desc: "專為敏弱與乾燥肌膚研發，結合氨基酸親膚洗顏與天然角鯊烯滋潤保護，洗顏、卸妝一次完成。",
+    image: "../images/舒淨洗卸兩用.jpg",
+    thumb: "images/舒淨洗卸兩用.jpg",
+    featured: true
+  },
+  {
+    id: "舒淨洗卸兩用_沙貨",
+    slug: "舒淨洗卸兩用_沙貨.html",
+    name: "舒淨洗卸兩用_沙貨",
+    series: "清潔系列",
+    seriesKey: "cleanse",
+    volume: "500 ml / 1000 ml",
+    ingredients: ["氨基酸洗顏成份", "天然角鯊烯", "洋甘菊萃取液", "款冬萃取液", "丙二醇"],
+    efficacy: "美容沙龍專業沙貨大容量包裝。極致溫和深層卸妝洗顏，保護脆弱角質層，沙龍護膚第一步驟首選。",
+    usage: "取適量置於掌心揉出綿密泡沫，在全臉打圈按摩後以清水清洗乾淨。",
+    skinType: "沙龍專業療程、敏感、乾燥肌膚。",
+    desc: "沙龍專用大容量舒淨洗卸兩用，專業美容師指定回購第一名。",
+    image: "../images/舒淨洗卸兩用_沙貨.jpg",
+    thumb: "images/舒淨洗卸兩用_沙貨.jpg",
+    featured: false
+  },
+  {
+    id: "青春淨顏乳",
+    slug: "青春淨顏乳.html",
+    name: "青春淨顏乳",
+    series: "清潔系列",
+    seriesKey: "cleanse",
+    volume: "150 ml",
+    ingredients: ["【氨基酸洗顏成份】【酵素】【維他命A】【茴香萃取液】"],
+    efficacy: "深層淨化多餘油脂與毛孔粉刺，維持肌膚水油平衡，洗後水潤柔嫩不緊繃。",
+    usage: "取適量於手心，加少量水揉搓起泡後塗抹於濕潤臉部，輕柔畫圓按摩後以溫水洗淨。",
+    skinType: "油性、混合性及易泛油光粉刺肌膚。",
+    desc: "淨化毛孔多餘油脂，帶走深層汙垢，維持肌膚細緻柔嫩狀態。",
+    image: "../images/青春淨顏乳.jpg",
+    thumb: "images/青春淨顏乳.jpg",
+    featured: false
+  },
+  {
+    id: "海藻角質凝露",
+    slug: "海藻角質凝露.html",
+    name: "海藻角質凝露",
+    series: "清潔系列",
+    seriesKey: "cleanse",
+    volume: "120 ml",
+    ingredients: ["【小黃瓜萃取物】【酵素】【蘆薈】【海藻活化素】【海鹽精華】"],
+    efficacy: "溫和軟化老廢角質，去除粗糙暗沉，撫平肌膚紋理，重現細緻晶瑩透亮膚質。",
+    usage: "臉部清潔後拭乾水分，取適量均勻塗抹於臉部，輕輕搓揉打圈，再以清水充分洗淨。",
+    skinType: "全膚質適用，特別推薦暗沉粗糙肌膚每週使用 1-2 次。",
+    desc: "富含海洋藻類微量元素與保濕多醣體，溫和代謝角質不傷肌膚屏障。",
+    image: "../images/海藻角質凝露.jpg",
+    thumb: "images/海藻角質凝露.jpg",
+    featured: false
+  },
+
+  // 2. 調理系列
+  {
+    id: "賦活晶瑩眼露",
+    slug: "賦活晶瑩眼露.html",
+    name: "賦活晶瑩眼露",
+    series: "調理系列",
+    seriesKey: "condition",
+    volume: "30 ml",
+    ingredients: ["【彈力素】【銀杏萃取液】【胎盤素】【維他命E】"],
+    efficacy: "改善眼周暗沉黑眼圈，緊緻眼袋浮腫，淡化乾燥細紋，恢復雙眸晶瑩神采。",
+    usage: "取米粒大小於無名指腹，輕輕點壓於眼周肌膚，由內向外輕撫至吸收。",
+    skinType: "眼周乾燥、暗沉、細紋浮腫肌膚。",
+    desc: "清爽凝露質地，零油脂負擔，不易生成肉芽脂肪粒。",
+    image: "../images/賦活晶瑩眼露.jpg",
+    thumb: "images/賦活晶瑩眼露.jpg",
+    featured: false
+  },
+  {
+    id: "玻尿酸原液",
+    slug: "玻尿酸原液.html",
+    name: "玻尿酸原液",
+    series: "調理系列",
+    seriesKey: "condition",
+    volume: "50 ml",
+    ingredients: ["【純天然植物生化科技萃取玻尿酸】"],
+    efficacy: "高濃度立體水網結構，形成透氣鎖水保護膜，改善乾燥脫屑，使肌膚飽滿水嫩。",
+    usage: "潔面並使用化妝水後，取 2-3 滴塗抹於全臉，輕拍按摩至吸收。",
+    skinType: "極度乾渴、缺水、醫美後修護等所有膚質。",
+    desc: "純淨水感原液，長效抓水、補水、鎖水三合一強效保濕。",
+    image: "../images/玻尿酸原液.jpg",
+    thumb: "images/玻尿酸原液.jpg",
+    featured: true
+  },
+
+  // 3. 重點精華保養系列
+  {
+    id: "仙人掌保濕精華露",
+    slug: "仙人掌保濕精華露.html",
+    name: "仙人掌保濕精華露",
+    series: "重點精華保養系列",
+    seriesKey: "serum",
+    volume: "50 ml",
+    ingredients: ["【仙人掌萃取液】【薰衣草精油】【綠茶萃取液】【甘草精華】【積雪草萃取液】【玻尿酸】"],
+    efficacy: "強韌肌膚屏障，抵禦極端氣候乾燥，維持長達72小時澎潤水嫩光澤。",
+    usage: "早晚使用於化妝水後，取適量均勻塗抹於臉頰與頸部，輕壓至吸收。",
+    skinType: "乾燥脫皮、換季乾癢、長期待在冷氣房之肌膚。",
+    desc: "汲取沙漠耐旱奇蹟能量，為肌底注入源源不絕的澎湃活水。",
+    image: "../images/仙人掌保濕精華露.jpg",
+    thumb: "images/仙人掌保濕精華露.jpg",
+    featured: false
+  },
+  {
+    id: "3D嫩白精華液",
+    slug: "3D嫩白精華液.html",
+    name: "3D嫩白精華液",
+    series: "重點精華保養系列",
+    seriesKey: "serum",
+    volume: "30 ml",
+    ingredients: ["高穩定型乙基維他命C", "熊果素", "菸鹼醯胺(Vitamin B3)", "阿魏酸亮白因子"],
+    efficacy: "3D立體亮白網絡，有效抑制黑色素沉澱，淡化暗沉痘印，改善蠟黃，綻放透亮發光肌。",
+    usage: "夜間保養時取 3-4 滴均勻塗抹全臉，日間使用請務必搭配隔離防曬乳。",
+    skinType: "膚色不均、暗沉無光、色斑瑕疵肌膚。",
+    desc: "高活性3D光感美白精萃，掃除深層暗沉，喚醒原生透明感。",
+    image: "../images/3D嫩白精華液.jpg",
+    thumb: "images/3D嫩白精華液.jpg",
+    featured: true
+  },
+  {
+    id: "魚子松露活膚精華",
+    slug: "魚子松露活膚精華.html",
+    name: "魚子松露活膚精華",
+    series: "重點精華保養系列",
+    seriesKey: "serum",
+    volume: "40 ml",
+    ingredients: ["【魚子醬萃取】【白松露萃取】【肌動蛋白】【 植物性類生長因子】【 牛奶三胜肽】"],
+    efficacy: "賦活肌底細胞能量，抵禦老化與自由基，深層撫平細紋，賦予緊實飽滿彈力。",
+    usage: "精華步驟取適量於手心溫熱後，順著肌膚紋理向上拉提按摩至吸收。",
+    skinType: "熟齡肌、鬆弛、缺乏彈性及老化初現肌膚。",
+    desc: "極奢賦活逆齡精萃，啟動肌膚深層再生機制，綻放緊緻光芒。",
+    image: "../images/魚子松露活膚精華.jpg",
+    thumb: "images/魚子松露活膚精華.jpg",
+    featured: true
+  },
+  {
+    id: "水光針",
+    slug: "水光針.html",
+    name: "水光針",
+    series: "重點精華保養系列",
+    seriesKey: "serum",
+    volume: "10 ml x 3支",
+    ingredients: ["高純度塗抹式水光精華", "寡胜肽-1", "交聯玻尿酸鈉", "富勒烯"],
+    efficacy: "媲美醫美級塗抹水光療程，瞬間為肌底灌注高濃度水光因子，撫平乾紋，煥發水光鏡面透亮。",
+    usage: "輕推水光針劑管，取適量滴於手心或直接點塗臉部，輕拍直至肌膚吸收發亮。",
+    skinType: "急救補水、醫美後修護、極度乾癟粗糙無光澤肌膚。",
+    desc: "沙龍與名媛必備塗抹水光針，一抹立現水潤玻璃肌感。",
+    image: "../images/水光針.jpg",
+    thumb: "images/水光針.jpg",
+    featured: true
+  },
+
+  // 4. 日夜滋潤修護系列
+  {
+    id: "潤采滋養活膚乳",
+    slug: "潤采滋養活膚乳.html",
+    name: "潤采滋養活膚乳",
+    series: "日夜滋潤修護系列",
+    seriesKey: "repair",
+    volume: "100 ml",
+    ingredients: ["【天然長效保濕】【月見草油】【荷荷芭油】【維他命E】【天然角鯊烯】"],
+    efficacy: "提供乾燥肌膚深層滋養，修護表皮角質防禦膜，防止水分散失，長時間柔嫩光滑。",
+    usage: "早晚精華液後，取適量均勻塗抹於臉部及頸部，輕揉推勻至吸收。",
+    skinType: "中性偏乾、乾性及熟齡缺油肌膚。",
+    desc: "絲滑乳液質地，滋養不油膩，賦予肌膚柔嫩細緻的奢華光感。",
+    image: "../images/潤采滋養活膚乳.jpg",
+    thumb: "images/潤采滋養活膚乳.jpg",
+    featured: false
+  },
+  {
+    id: "嫩白日晚霜",
+    slug: "嫩白日晚霜.html",
+    name: "嫩白日晚霜",
+    series: "日夜滋潤修護系列",
+    seriesKey: "repair",
+    volume: "50 g",
+    ingredients: ["【磷脂質 】【L(+)左旋維生素C】【黃苓】【胎盤素】【DNA去氧核糖核酸 】【小麥胚芽油】【 Dipotassium Glycyrrhizzinate (K2G)】"],
+    efficacy: "日間抵禦氧化暗沉，夜間深層淨白淡斑，日夜接力實現透白均勻美肌。",
+    usage: "每日早晚基礎保養最後一步，取珍珠大小塗抹於全臉並輕拍按摩。",
+    skinType: "暗沉、斑點、膚色不勻及曬後需美白修護肌膚。",
+    desc: "24小時雙效美白鎖水滋潤，改善斑點沉澱，煥發水感晶透光芒。",
+    image: "../images/嫩白日晚霜.jpg",
+    thumb: "images/嫩白日晚霜.jpg",
+    featured: false
+  },
+  {
+    id: "海洋元素",
+    slug: "海洋元素.html",
+    name: "海洋元素",
+    series: "日夜滋潤修護系列",
+    seriesKey: "repair",
+    volume: "50 ml",
+    ingredients: ["【三元胜肽】【神經醯胺】【六胜肽】【藍藻】【海洋深層水】【甘草精華】"],
+    efficacy: "深層賦活疲勞肌底，提升肌膚防禦力，注入豐富礦物微量元素，飽滿回彈。",
+    usage: "早晚乳液後或精華步驟使用，取適量均勻塗抹於臉部。",
+    skinType: "經常熬夜、生活壓力大、膚色疲倦無光澤者。",
+    desc: "濃縮深海礦物能量，一抹化水，深層修復肌膚微循環與生命力。",
+    image: "../images/海洋元素.jpg",
+    thumb: "images/海洋元素.jpg",
+    featured: false
+  },
+  {
+    id: "魔滴水膚凝霜",
+    slug: "魔滴水膚凝霜.html",
+    name: "魔滴水膚凝霜",
+    series: "日夜滋潤修護系列",
+    seriesKey: "repair",
+    volume: "50 g",
+    ingredients: ["【蘋果幹細胞】【r-PGA聚麬胺酸】【櫻花萃取液】【藍藻】【甘草精華】【長壽菌(酵母菌 & 醋酸菌) & 紅茶萃取】"],
+    efficacy: "接觸肌膚瞬間化為澎湃水珠，秒速滲透肌底，清爽零黏膩，長效沁涼保濕。",
+    usage: "於保養最後一道程序，取適量輕拍塗抹，享受爆水保濕膚觸。",
+    skinType: "油性肌膚、外油內乾、混合肌及夏季悶熱氣候適用。",
+    desc: "革命性凝水轉化技術，如凝水薄膜般鎖住滿滿水分子。",
+    image: "../images/魔滴水膚凝霜.jpg",
+    thumb: "images/魔滴水膚凝霜.jpg",
+    featured: true
+  },
+  {
+    id: "澤肌嫩白精華霜",
+    slug: "澤肌嫩白精華霜.html",
+    name: "澤肌嫩白精華霜",
+    series: "日夜滋潤修護系列",
+    seriesKey: "repair",
+    volume: "50 g",
+    ingredients: ["【包覆型胜肽】【傳明酸】【乙基維他命C】【白桑椹萃取液】【甘草精華】【玻尿酸】【荷荷芭油】【神經醯胺】【角鲨烷】【維他命E】"],
+    efficacy: "淡化色素沉著，修飾粗大毛孔，深度亮白保濕，使肌膚如珍珠般溫潤光潔。",
+    usage: "夜間保養時取適量均勻塗抹於全臉，加強斑點暗沉處按摩。",
+    skinType: "乾燥暗沉、色斑瑕疵肌膚。",
+    desc: "珍珠光澤精萃與胜肽亮白成分完美揉合，養出無瑕玉質肌。",
+    image: "../images/澤肌嫩白精華霜.jpg",
+    thumb: "images/澤肌嫩白精華霜.jpg",
+    featured: false
+  },
+  {
+    id: "多元胜肽緊緻霜",
+    slug: "多元胜肽緊緻霜.html",
+    name: "多元胜肽緊緻霜",
+    series: "日夜滋潤修護系列",
+    seriesKey: "repair",
+    volume: "50 g",
+    ingredients: ["【五胜肽訊息傳遞因子】【六胜肽】【乳木果油】【三元胜肽】【胡桃油】【葵花油】【維生素E】"],
+    efficacy: "緊緻臉部下顎線條，淡化深層抬頭紋、木偶紋，提升肌膚豐潤彈性與厚度。",
+    usage: "晚間保養程序中，取適量配合由下而上提拉手法按摩臉部與頸部。",
+    skinType: "鬆弛下垂、出現深層靜態紋路及熟齡肌膚。",
+    desc: "高階抗衰老胜肽面霜，緊緻塑顏，對抗地心引力老化痕跡。",
+    image: "../images/多元胜肽緊緻霜.jpg",
+    thumb: "images/多元胜肽緊緻霜.jpg",
+    featured: false
+  },
+  {
+    id: "美美淨痘",
+    slug: "美美淨痘.html",
+    name: "美美淨痘",
+    series: "日夜滋潤修護系列",
+    seriesKey: "repair",
+    volume: "30 g",
+    ingredients: ["【水楊酸】【綠茶精油】【黃柏萃取液】【金縷梅萃取液】【甘草萃取液】【人蔘萃取液】【玻尿酸】"],
+    efficacy: "溫和代謝毛孔粉刺，舒緩紅腫發炎痘痘，調節皮脂過剩分泌，預防痘疤形成。",
+    usage: "潔面後取適量點塗於痘痘粉刺好發區域，早晚各一次，避開眼周唇部。",
+    skinType: "青春痘、粉刺、發紅面皰及易出油泛紅肌膚。",
+    desc: "草本植萃調理配方，溫和淨化收斂痘痘，還原純淨平滑膚況。",
+    image: "../images/美美淨痘.jpg",
+    thumb: "images/美美淨痘.jpg",
+    featured: false
+  },
+
+  // 5. 日間防護系列
+  {
+    id: "水嫩飾底乳(膚色)",
+    slug: "水嫩飾底乳(膚色).html",
+    name: "水嫩飾底乳(膚色)",
+    series: "日間防護系列",
+    seriesKey: "protect",
+    volume: "40 ml",
+    ingredients: ["【玻尿酸】【乳木果油】【維生素E】【二氧化鈦】【角鯊烯】"],
+    efficacy: "自然校正蠟黃暗沉膚色，修飾毛孔粗大與瑕疵，打造偽素顏裸妝好氣色。",
+    usage: "日間保養最後一步、上妝前使用，取適量均勻塗抹於全臉至頸部。",
+    skinType: "所有膚質，特別推薦膚色蠟黃、暗沉不均勻者。",
+    desc: "親膚水感質地，輕薄透氣不悶痘，一抹提亮立現水潤光澤。",
+    image: "../images/水嫩飾底乳(膚色).jpg",
+    thumb: "images/水嫩飾底乳(膚色).jpg",
+    featured: false
+  },
+
+  // 6. 面膜深層護理系列
+  {
+    id: "嫩白面膜",
+    slug: "嫩白面膜.html",
+    name: "嫩白面膜",
+    series: "面膜深層護理系列",
+    seriesKey: "mask",
+    volume: "5片/盒 (每片28ml)",
+    ingredients: ["傳明酸亮白因子", "九胜肽", "熊果素萃取", "日本頂級天絲膜布"],
+    efficacy: "密集滲透淨白精華，改善暗沉與膚色不均，敷後肌膚立即水潤透亮、白皙有光澤。",
+    usage: "臉部清潔後，將面膜平整敷於全臉，靜待 15-20 分鐘後取下，按摩至剩餘精華完全吸收。",
+    skinType: "暗沉、蠟黃、急需提亮透白之全膚質。",
+    desc: "高濃度瞬效嫩白精華，深層導入肌底，實現沙龙級無瑕光感。",
+    image: "../images/嫩白面膜.jpg",
+    thumb: "images/嫩白面膜.jpg",
+    featured: true
+  },
+  {
+    id: "蠶絲蛋白面膜",
+    slug: "蠶絲蛋白面膜.html",
+    name: "蠶絲蛋白面膜",
+    series: "面膜深層護理系列",
+    seriesKey: "mask",
+    volume: "5片/盒 (每片30ml)",
+    ingredients: ["高純度水解蠶絲蛋白", "海洋膠原胜肽", "神經醯胺", "透明質酸複合水"],
+    efficacy: "深層修護受損肌膚屏障，撫平乾燥細紋，賦予肌膚彈潤豐盈，恢復絲綢般細膩觸感。",
+    usage: "潔顏後敷於臉部 15-20 分鐘，揭下面膜後將臉上精華液輕柔按摩至吸收無需沖洗。",
+    skinType: "乾燥缺水、敏感修護、換季敏弱與醫美術後修護。",
+    desc: "珍稀蠶絲蛋白小分子高滲透力，如隱形水膜般全方位滋潤。",
+    image: "../images/蠶絲蛋白面膜.jpg",
+    thumb: "images/蠶絲蛋白面膜.jpg",
+    featured: true
+  }
+];
+
+if (typeof module !== 'undefined' && module.exports) {
+  module.exports = { COMPANY_INFO, PRODUCT_CATEGORIES, PRODUCTS_DATA };
+}
