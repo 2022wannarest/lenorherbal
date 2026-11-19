@@ -4,9 +4,9 @@
  */
 
 const COMPANY_INFO = {
-  name: "萊渼國際貿易有限公司",
-  nameEn: "LAIMEI INTERNATIONAL TRADE CO., LTD.",
-  brand: "LENOR HERBAL 萊渼生化草本美肌",
+  name: "蓮諾赫本",
+  nameEn: "Lenorherbal CO., LTD.",
+  brand: "LENOR HERBAL 蓮諾赫本生化草本美肌",
   address: "新北市板橋區信義路117號5樓",
   tel: "(02)8953-5096",
   fax: "(02)8953-5119",
