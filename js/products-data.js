@@ -10,7 +10,7 @@ const COMPANY_INFO = {
   address: "新北市板橋區信義路117號5樓",
   tel: "(02)8953-5096",
   fax: "(02)8953-5119",
-  hours: "週一至週五 09:00 - 18:00 (國定例假日休息)"
+  hours: "週一至週五 09:00 - 17:00 (國定例假日休息)"
 };
 
 const PRODUCT_CATEGORIES = [
